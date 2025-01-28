@@ -32,6 +32,19 @@ void ATank::BeginPlay()
 void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	{
+		FHitResult HitResult;
+		PlayerController->GetHitResultUnderCursor(
+			ECC_Visibility,
+			false,
+			HitResult);
+
+
+		//GEngine->AddOnScreenDebugMessage(-1, 0.1f, FColor::Yellow, TEXT("RotateTurret"));
+		RotateTurret(HitResult.Location);
+	}
 }
 
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
