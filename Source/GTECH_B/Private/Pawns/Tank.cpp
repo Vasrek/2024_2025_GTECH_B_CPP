@@ -33,10 +33,10 @@ void ATank::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	if (TankPlayerController)
 	{
 		FHitResult HitResult;
-		PlayerController->GetHitResultUnderCursor(
+		TankPlayerController->GetHitResultUnderCursor(
 			ECC_Visibility,
 			false,
 			HitResult);
@@ -55,7 +55,8 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	{
 		if (MovementAction)
 		{
-			EnhancedInputComponent->BindAction(MovementAction, ETriggerEvent::Triggered, this, &ATank::Move);			
+			EnhancedInputComponent->BindAction(MovementAction, ETriggerEvent::Triggered, this, &ATank::Move);
+			EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Started, this, &ThisClass::Fire);
 		}
 	}
 	

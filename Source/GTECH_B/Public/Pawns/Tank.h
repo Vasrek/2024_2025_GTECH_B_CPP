@@ -32,6 +32,9 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* MovementAction;
 
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* FireAction;
+
 	void Move(const FInputActionValue& Value);
 
 
