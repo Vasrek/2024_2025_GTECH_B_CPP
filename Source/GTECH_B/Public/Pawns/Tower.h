@@ -23,5 +23,15 @@ private:
 	ATank* PlayerTank;
 
 	UPROPERTY(EditAnywhere, Category = "Fire")
-	float FireRange = 300.f;	
+	float FireRange = 300.f;
+
+	UPROPERTY(EditAnywhere, Category = "Fire")
+	float FireRate = 2.f;
+
+	FTimerHandle FireRateTimerHandle;
+
+	void CheckFireCondition();
+
+	bool InFireRange();
+	
 };
