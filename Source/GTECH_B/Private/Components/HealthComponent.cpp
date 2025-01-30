@@ -25,11 +25,11 @@ void UHealthComponent::DamageTaken(AActor* DamagedActor, float BaseDamage, const
 	AController* Instigator, AActor* DamageCauser)
 {
 	if (BaseDamage <= 0.f) return;
-
+	
 	CurrentHealth -= BaseDamage;
 	if (CurrentHealth <= 0)
 	{
 		CurrentHealth = 0;
-		//GetOwner()->Destroy();
+		GetOwner()->Destroy();
 	}
 }

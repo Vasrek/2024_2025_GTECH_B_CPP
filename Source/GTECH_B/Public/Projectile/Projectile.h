@@ -5,6 +5,8 @@
 #include "Projectile.generated.h"
 
 class UProjectileMovementComponent;
+class UNiagaraSystem;
+class USoundCue;
 
 UCLASS()
 class GTECH_B_API AProjectile : public AActor
@@ -30,5 +32,11 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Damage")
 	float Damage = 25.f;
+
+	UPROPERTY(EditAnywhere, Category = "Damage")
+	UNiagaraSystem* ExplosionVFX;
+
+	UPROPERTY(EditAnywhere, Category = "Damage")
+	USoundCue* ExplosionSFX;
 
 };

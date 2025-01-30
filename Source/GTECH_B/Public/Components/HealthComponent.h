@@ -23,5 +23,7 @@ private:
 	float CurrentHealth = 0.f;
 
 	UFUNCTION()
-	void DamageTaken(AActor* DamagedActor, float BaseDamage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser);		
+	void DamageTaken(AActor* DamagedActor, float BaseDamage, const UDamageType* DamageType, AController* Instigator, AActor* DamageCauser);
+
+	
 };
